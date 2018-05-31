@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageButton
+        android:id="@+id/plant_detail_img"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/plant_1" />
+
+
+    <LinearLayout
+        android:id="@+id/basic_info"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftIcon="@drawable/plant_name"
+            leon:leftText="名称"
+            leon:rightText="菠萝" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/plant_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftIcon="@drawable/plant_date"
+            leon:leftText="种植日期"
+            leon:rightText="2018.02.23" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:text="养护计划"
+        android:textColor="#000"
+        android:textSize="10sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/water"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftIcon="@drawable/water"
+            leon:leftText="浇水"
+            leon:rightText="8天后" />
+
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/fertilize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftIcon="@drawable/chanzi"
+            leon:leftText="施肥"
+            leon:rightText="15天后" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/reproduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftIcon="@drawable/reproduction"
+            leon:leftText="繁殖"
+            leon:rightText="34天后" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/change_pot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftIcon="@drawable/flower_pot"
+            leon:leftText="换盆"
+            leon:rightText="56天后" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

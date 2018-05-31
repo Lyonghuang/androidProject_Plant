@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/settingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/plant"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avator_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/e"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"/>
+
+        <TextView
+            android:id="@+id/nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="小飞象"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/setting_account"
+        leon:leftText="账号"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/collection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/setting_collection"
+        leon:leftText="收藏" />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/shut_down_remind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/setting_remind"
+        leon:leftText="提醒设置" />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/suggest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/setting_suggest"
+        leon:leftText="反馈与建议"
+        />
+
+
+
+
+</LinearLayout>

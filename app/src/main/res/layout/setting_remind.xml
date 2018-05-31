@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/setting_remind">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageButton
+            android:id="@+id/back_to_setting"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="#EEEEEE"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back"/>
+
+
+        <TextView
+            android:id="@+id/chat_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="提醒设置"
+            android:textSize="25sp"/>
+
+
+
+    </RelativeLayout>
+
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/shut_down_remind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/setting_remind"
+        leon:rightStyle="iconSwitch"
+        leon:leftText="暂时关闭提醒" />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/not_disturb_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/no_disturb"
+        leon:isShowRightText="true"
+        leon:leftText="晚上勿扰时间"
+        leon:rightText="23:00--7:30"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/time_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/time_span"
+        leon:leftText="提醒间隔"
+        leon:isShowRightText="true"
+        leon:rightText="15分钟"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/remind_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/music"
+        leon:leftText="提醒音乐"
+        leon:isShowRightText="true"
+        leon:rightText="田园诗"/>
+
+</LinearLayout>

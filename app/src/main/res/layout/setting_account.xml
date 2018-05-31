@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/setting_remind">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageButton
+            android:id="@+id/back_to_setting"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="#EEEEEE"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back"/>
+
+
+        <TextView
+            android:id="@+id/chat_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="账号设置"
+            android:textSize="25sp"/>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/modify_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/modify_image"
+        leon:leftText="修改头像"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/modify_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/modify_password"
+        leon:leftText="修改密码"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/modify_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/modify_phone"
+        leon:leftText="修改手机号"
+        leon:isShowRightText="true"
+        leon:rightText="+8618238272007"
+        />
+
+</LinearLayout>

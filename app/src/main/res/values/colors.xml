@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="backgroundColor">#fff</color>
+
+
+
+
+
+
+    <color name="orange_main">#ec6f1a</color>
+    <color name="tv_gray_deep">#818181</color>
+    <color name="orange_light">#ffd39b</color>
+    <color name="top_bar_normal_bg">#ec6f1a</color>
+
+
+</resources>

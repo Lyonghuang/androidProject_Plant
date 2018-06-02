@@ -171,12 +171,9 @@
         android:paddingBottom="@dimen/margin_small"
         android:paddingTop="@dimen/margin_small"
         android:text="@string/login"
-
-
-
-
-
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_size_normal"/>
+        android:textSize="@dimen/text_size_normal" />
+
+
 
 </LinearLayout>

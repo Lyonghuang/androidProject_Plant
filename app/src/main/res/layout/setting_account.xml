@@ -64,4 +64,10 @@
         leon:rightText="+8618238272007"
         />
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注销登录"/>
+
 </LinearLayout>

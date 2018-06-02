@@ -1,6 +1,8 @@
 package com.example.activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.InputType;
@@ -10,9 +12,18 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidproject_plant.R;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import util.SharedPreferencesUtils;
 import widget.LoadingDialog;
@@ -23,6 +34,7 @@ import widget.LoadingDialog;
  */
 public class LoginActivity extends Activity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener{
 
+    private String address = "http://192.168.1.103:8080/Plant/Login";
     //布局内的控件
     private EditText et_name;
     private EditText et_password;
@@ -166,7 +178,10 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
         switch (v.getId()){
             case R.id.btn_login:
                 loadUserName();
-//                login();//登录
+                String registerUrlStr = address + "?account="
+                        + getAccount().toString() + "&password=" + getPassword().toString();
+                //login(getAccount(), getPassword());//登录
+                new MyAsyncTask().execute(registerUrlStr);
                 break;
             case R.id.iv_see_password:
                 setPasswordVisibility();//改变图片并设置输入框的文本可见或不可见
@@ -350,7 +365,46 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
 
     }
 
+    public class MyAsyncTask extends AsyncTask<String, Integer, String> {
 
+        @Override
+        protected String doInBackground(String...params) {
+            HttpURLConnection connection = null;
+            StringBuilder response = new StringBuilder();
+
+            try {
+                URL url = new URL(params[0]); // 声明一个URL,注意如果用百度首页实验，请使用https开头，否则获取不到返回报文
+                connection = (HttpURLConnection) url.openConnection(); // 打开该URL连接
+                connection.setRequestMethod("GET"); // 设置请求方法，“POST或GET”，我们这里用GET，在说到POST的时候再用POST
+                connection.setConnectTimeout(80000); // 设置连接建立的超时时间
+                connection.setReadTimeout(80000); // 设置网络报文收发超时时间
+                InputStream in = connection.getInputStream();  // 通过连接的输入流获取下发报文，然后就是Java的流处理
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return response.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s.equals("100")) {
+                Toast.makeText(LoginActivity.this, "登录成功！", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(LoginActivity.this, "登录失败，用户名或密码错误", Toast.LENGTH_LONG).show();
+            }
+        }
+
+    }
 //    /**
 //     * 模拟登录情况
 //     * 用户名csdn，密码123456，就能登录成功，否则登录失败

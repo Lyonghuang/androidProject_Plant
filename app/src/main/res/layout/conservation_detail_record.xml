@@ -1,0 +1,36 @@
+<!--这里是养护记录中的一条记录的详细信息界面-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <!--养护操作-->
+    <TextView
+        android:id="@+id/conservationAction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="浇水"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/conservationTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="2018.06.02"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/conservationPerson"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="李华"
+        android:textSize="20sp"/>
+</LinearLayout>

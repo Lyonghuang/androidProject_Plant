@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chatFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical">
+
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:text="聊天界面"-->
+    <!--android:gravity="center"-->
+    <!--android:textSize="30sp"/>-->
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/back_to_chat"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_gravity="left"-->
+            <!--android:src="@drawable/back"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/chat_text"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:text="聊天"/>-->
+        <!---->
+        <!---->
+        <!--<ImageButton-->
+            <!--android:id="@+id/chat_setting"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:src="@drawable/people" />-->
+    <!--</LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageButton
+            android:id="@+id/back_to_chat"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="#EEEEEE"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back"/>
+
+        <TextView
+            android:id="@+id/chat_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="聊天"
+            android:textSize="25sp"/>
+
+
+        <ImageButton
+            android:id="@+id/chat_setting"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="#EEEEEE"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/people" />
+
+    </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recylerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#EEEEEE"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/et_message"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="5"
+                android:background="@drawable/bg_et"
+                android:paddingLeft="4dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvSend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_send"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="发送"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+</LinearLayout>

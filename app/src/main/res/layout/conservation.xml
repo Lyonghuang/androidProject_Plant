@@ -1,0 +1,68 @@
+
+<!--这里是对是否完成养护和不知道如何进行养护的页面-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageButton
+            android:id="@+id/conservation_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="#EEEEEE"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back"/>
+
+
+        <TextView
+            android:id="@+id/conservation_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="账号设置"
+            android:textSize="25sp"/>
+
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="没有实际进行操作请不要点击，因为会影响我们对下次操作的预测"
+        android:textSize="10sp"
+        android:paddingLeft="20dp"/>
+
+    <Button
+        android:id="@+id/finish_conservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完成养护操作（操作可以进行替换）"
+        android:textSize="15sp"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/how_to_conservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="怎样进行操作？"
+        android:textSize="20sp"/>
+
+</LinearLayout>

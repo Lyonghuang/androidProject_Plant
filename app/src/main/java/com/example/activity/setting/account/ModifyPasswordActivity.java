@@ -31,7 +31,7 @@ public class ModifyPasswordActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modify_password);
-
+        initView();
 
     }
 
@@ -47,6 +47,8 @@ public class ModifyPasswordActivity extends Activity {
                 if (old_password==null||old_password.getText().toString().isEmpty()){
                     ToastUtil.show(ModifyPasswordActivity.this,"请输入您原来的密码");
                 }
+
+                System.out.println("年后");
 
                 if (new_password==null||new_password.getText().toString().isEmpty()){
                     ToastUtil.show(ModifyPasswordActivity.this,"请输入新的密码");

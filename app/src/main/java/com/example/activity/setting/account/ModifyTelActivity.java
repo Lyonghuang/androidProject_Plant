@@ -32,6 +32,8 @@ public class ModifyTelActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modify_tel);
 
+        initView();
+
 
     }
 

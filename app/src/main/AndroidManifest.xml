@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+
         <activity android:name="com.example.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +37,8 @@
         <activity android:name="com.example.activity.conservation.ReproductionActivity"/>
         <activity android:name="com.example.activity.RegisterActivity"/>
         <activity android:name="com.example.activity.ConservationRecordActivity"/>
+        <activity android:name="com.example.activity.setting.account.ModifyPasswordActivity"/>
+        <activity android:name="com.example.activity.setting.account.ModifyTelActivity"/>
 
 
     </application>

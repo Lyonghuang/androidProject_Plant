@@ -1,9 +1,12 @@
 package com.example.activity.setting;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.example.activity.setting.account.ModifyPasswordActivity;
+import com.example.activity.setting.account.ModifyTelActivity;
 import com.example.androidproject_plant.R;
 import com.leon.lib.settingview.LSettingItem;
 
@@ -37,6 +40,8 @@ public class AccountActivity extends Activity{
             @Override
             public void click() {
                 System.out.println("点击了修改密码");
+                Intent intent=new Intent(AccountActivity.this, ModifyPasswordActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -44,6 +49,8 @@ public class AccountActivity extends Activity{
             @Override
             public void click() {
                 System.out.println("点击了修改手机号");
+                Intent intent=new Intent(AccountActivity.this, ModifyTelActivity.class);
+                startActivity(intent);
 
             }
         });

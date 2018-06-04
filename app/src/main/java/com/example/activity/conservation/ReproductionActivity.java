@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.androidproject_plant.R;
 
+import constatnt.constant;
 import util.ToastUtil;
 
 public class ReproductionActivity extends Activity implements View.OnClickListener{
@@ -16,6 +17,11 @@ public class ReproductionActivity extends Activity implements View.OnClickListen
     private String finish_water="完成繁殖";
     private String how_to_water="如何繁殖？";
     private String conservation="繁殖";
+
+
+    //要从本地获取plantId和nickName
+    private String plantId;
+    private String nickName;
 
     private Button finish_conservation;
     private Button how_to_conservation;
@@ -49,7 +55,8 @@ public class ReproductionActivity extends Activity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.finish_conservation:
-                ToastUtil.show(this,"完成繁殖！");
+                new SendConservationFinish(ReproductionActivity.this,plantId,nickName, constant.REPRODUCTION);
+//                ToastUtil.show(this,"完成繁殖！");
                 break;
             case R.id.how_to_conservation:
                 ToastUtil.show(this,"将要展示的页面告诉你如何进行繁殖！");

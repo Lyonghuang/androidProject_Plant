@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.androidproject_plant.R;
 
+import constatnt.constant;
 import util.ToastUtil;
 
 public class ChangePotActivity extends Activity implements View.OnClickListener{
@@ -20,6 +21,12 @@ public class ChangePotActivity extends Activity implements View.OnClickListener{
     private Button finish_conservation;
     private Button how_to_conservation;
     private TextView conservation_text;
+
+
+    //要从本地获取plantId和nickName
+    private String plantId;
+    private String nickName;
+
 
 
     @Override
@@ -48,11 +55,15 @@ public class ChangePotActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.finish_conservation:
-                ToastUtil.show(this,"完成换盆！");
+                new SendConservationFinish(ChangePotActivity.this,plantId,nickName, constant.CHANGE_FLOWER_POT);
+//                ToastUtil.show(this,"完成换盆！");
                 break;
             case R.id.how_to_conservation:
                 ToastUtil.show(this,"将要展示的页面告诉你如何进行换盆！");
                 break;
         }
     }
+
+
+
 }

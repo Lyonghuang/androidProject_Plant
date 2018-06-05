@@ -20,10 +20,14 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     private Context context;
 
+    private String remindContent;//提醒内容
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context=context;
+
+        remindContent=intent.getStringExtra("remindContent");
+
 
         Intent i = new Intent(context, LongRunningService.class);
         context.startService(i);

@@ -12,6 +12,7 @@ public class LongRunningService extends Service {
 
 
     private int time=10*60;//延迟时间
+    private String remidContent;//提醒内容
 
 
     @Nullable
@@ -22,6 +23,10 @@ public class LongRunningService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+
+        time= Integer.parseInt(intent.getStringExtra("time"));
+        remidContent=intent.getStringExtra("remindContent");
 
         new Thread(new Runnable() {
             @Override
@@ -35,6 +40,9 @@ public class LongRunningService extends Service {
         long triggerAtTime= SystemClock.elapsedRealtime()+time;
 
         Intent i=new Intent(this,AlarmReceiver.class);
+
+//        i.putExtra("time",time+"");
+        i.putExtra("remindContent",remidContent);
 
         PendingIntent pi=PendingIntent.getBroadcast(this,0,i,0);
 

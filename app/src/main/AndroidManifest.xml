@@ -41,6 +41,10 @@
         <activity android:name="com.example.activity.setting.account.ModifyTelActivity"/>
 
 
+        <service android:name="util.tiemr.LongRunningService"/>
+        <receiver android:name="util.tiemr.AlarmReceiver"/>
+
+
     </application>
 
 </manifest>

@@ -34,6 +34,11 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/orange_light"/>
+
 
     <com.leon.lib.settingview.LSettingItem
         android:id="@+id/advice"

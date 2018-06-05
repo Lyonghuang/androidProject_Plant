@@ -13,6 +13,11 @@
         android:text="养护记录"
         android:textSize="25sp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/orange_light"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

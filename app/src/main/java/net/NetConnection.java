@@ -29,28 +29,6 @@ public class NetConnection {
             @Override
             protected String doInBackground(Void... voids) {
 
-
-//                JSONObject jsonObject=new JSONObject();//创建json对象
-//                //将要发送的消息储存在json对象中
-//                for (int i=0;i<kvs.length;i+=2){
-//                    try {
-//                        jsonObject.put(kvs[i], URLEncoder.encode(kvs[i+1],"UTF-8"));
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    } catch (UnsupportedEncodingException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//                String jsonStr=jsonObject.toString();//把json对象俺json的编码格式转换为字符串
-//
-//                StringBuffer jsonObject = new StringBuffer();
-//                jsonObject.append("{");
-//                for (int i = 0; i < kvs.length; i += 2) {
-//                    //将要发送的信息以键值对的形式存储起来
-//                    jsonObject.append("\""+kvs[i]+"\":").append("\""+kvs[i + 1]+"\"").append(",");
-//                }
-//                jsonObject.append("}");
-
                 try {
                     URLConnection uc;
 
@@ -75,10 +53,6 @@ public class NetConnection {
                             outData.close();
 
 
-//                            bw.write(requestData.toString());//把json字符串写入缓冲区中
-//                            bw.flush();//刷新缓冲区，把数据发送出去
-//                            out.close();
-//                            bw.close();
                             break;
                         default:
                             uc = new URL(url + "?" +requestData.toString()).openConnection();

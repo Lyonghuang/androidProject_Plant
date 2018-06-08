@@ -18,22 +18,30 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     private NotificationManager notificationManager;
 
+    private long time;//提醒的间隔
+
     private Context context;
 
     private String remindContent;//提醒内容
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context=context;
 
         remindContent=intent.getStringExtra("remindContent");
+        time= Long.parseLong(intent.getStringExtra("time"));
 
 
         Intent i = new Intent(context, LongRunningService.class);
+
+        i.putExtra("time",time+"");
+        i.putExtra("remindContent",remindContent);
+
         context.startService(i);
 
 
-        System.out.println("每隔十秒定时执行");
+//        System.out.println("每隔十秒定时执行");
     }
 
 

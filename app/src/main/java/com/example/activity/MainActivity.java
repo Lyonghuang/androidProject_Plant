@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+//        new RemindUtil(10*60,"浇水",this);
 
 
         findView();

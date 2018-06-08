@@ -39,6 +39,7 @@
         <activity android:name="com.example.activity.ConservationRecordActivity"/>
         <activity android:name="com.example.activity.setting.account.ModifyPasswordActivity"/>
         <activity android:name="com.example.activity.setting.account.ModifyTelActivity"/>
+        <activity android:name="com.example.activity.setting.suggest.SubmitSuggestActivity"/>
 
 
         <service android:name="util.tiemr.LongRunningService"/>

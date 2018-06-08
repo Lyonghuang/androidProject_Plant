@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.example.activity.LoginActivity;
 import com.example.activity.setting.account.ModifyPasswordActivity;
 import com.example.activity.setting.account.ModifyTelActivity;
 import com.example.androidproject_plant.R;
@@ -12,7 +13,7 @@ import com.leon.lib.settingview.LSettingItem;
 
 public class AccountActivity extends Activity{
 
-    LSettingItem image,password,phone;
+    LSettingItem image,password,phone,login_out;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class AccountActivity extends Activity{
         image=(LSettingItem)findViewById(R.id.modify_image);
         password=(LSettingItem)findViewById(R.id.modify_password);
         phone=(LSettingItem)findViewById(R.id.modify_phone);
+        login_out=(LSettingItem)findViewById(R.id.login_out);
     }
 
     private void reatctToClick(){
@@ -52,6 +54,16 @@ public class AccountActivity extends Activity{
                 Intent intent=new Intent(AccountActivity.this, ModifyTelActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        login_out.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
+            @Override
+            public void click() {
+                System.out.println("退出当前账号");
+                Intent intent=new Intent(AccountActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -11,7 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
+import com.example.activity.AddPlantActivity;
 import com.example.activity.PlantActivity;
 import com.example.androidproject_plant.R;
 
@@ -27,6 +29,8 @@ public class PlantFragment extends Fragment{
     private RecyclerView plantRecyclerView;
     private PlantAdapter plantAdapter;
     private List<Plant> plants=new ArrayList<>();
+
+    private ImageButton addPlant;
 
     private View view;
 
@@ -61,6 +65,17 @@ public class PlantFragment extends Fragment{
         if (plants.size()>0){
             return;
         }
+
+        addPlant=(ImageButton)view.findViewById(R.id.add_plant_button);
+        addPlant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), AddPlantActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         plantRecyclerView=(RecyclerView)view.findViewById(R.id.recylerViewPlant);
         initPlant();
 

@@ -41,6 +41,8 @@
         <activity android:name="com.example.activity.setting.account.ModifyTelActivity"/>
         <activity android:name="com.example.activity.setting.suggest.SubmitSuggestActivity"/>
 
+        <activity android:name="com.example.activity.AddPlantActivity"/>
+
 
         <service android:name="util.tiemr.LongRunningService"/>
         <receiver android:name="util.tiemr.AlarmReceiver"/>

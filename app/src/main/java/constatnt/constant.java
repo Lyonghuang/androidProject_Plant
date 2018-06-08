@@ -56,4 +56,5 @@ public class constant {
     public static final String CONSERVATION_TIME="conservationTime";
     public static final String CONSERVATION_PERSON="conservationPerson";
 
+    public static final String PLANT_TYPE = "plantType";
 }

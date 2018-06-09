@@ -110,8 +110,10 @@ public class PlantFragment extends Fragment{
 
 
                 System.out.println("植物id为："+plants.get(position).getImgId());
-                intent.putExtra("imgId",plants.get(position).getImgId()+"");
+//                intent.putExtra("imgId",plants.get(position).getImgId()+"");
                 intent.putExtra("plantName",plants.get(position).getName());
+                intent.putExtra("position",position+"");
+                System.out.println("王尼玛： "+position);
                 startActivity(intent);
             }
 
@@ -160,20 +162,47 @@ public class PlantFragment extends Fragment{
 //        plant.setBaikeURL("www.pdfcxc.cn");//有关该植物的链接
 //        plants.add(plant);
 
-        plants.add(new Plant("植物1",R.drawable.plant_1,"生长状态良好"));
-        plants.add(new Plant("植物2",R.drawable.plant_2,"生长状态良好"));
-        plants.add(new Plant("植物3",R.drawable.plant_3,"生长状态良好"));
-        plants.add(new Plant("植物4",R.drawable.plant_4,"生长状态良好"));
-        plants.add(new Plant("植物5",R.drawable.plant_5,"生长状态良好"));
-        plants.add(new Plant("植物6",R.drawable.plant_6,"生长状态良好"));
-        plants.add(new Plant("植物7",R.drawable.plant_7,"生长状态良好"));
-        plants.add(new Plant("植物8",R.drawable.plant_8,"生长状态良好"));
-        plants.add(new Plant("植物9",R.drawable.plant_9,"生长状态良好"));
-        plants.add(new Plant("植物10",R.drawable.plant_10,"生长状态良好"));
-        plants.add(new Plant("植物11",R.drawable.plant_11,"生长状态良好"));
-        plants.add(new Plant("植物12",R.drawable.plant_12,"生长状态良好"));
-        plants.add(new Plant("植物13",R.drawable.plant_13,"生长状态良好"));
-        plants.add(new Plant("植物14",R.drawable.plant_14,"生长状态良好"));
+//        plants.add(new Plant("植物1",R.drawable.plant_1,"生长状态良好"));
+//        plants.add(new Plant("植物2",R.drawable.plant_2,"生长状态良好"));
+//        plants.add(new Plant("植物3",R.drawable.plant_3,"生长状态良好"));
+//        plants.add(new Plant("植物4",R.drawable.plant_4,"生长状态良好"));
+//        plants.add(new Plant("植物5",R.drawable.plant_5,"生长状态良好"));
+//        plants.add(new Plant("植物6",R.drawable.plant_6,"生长状态良好"));
+//        plants.add(new Plant("植物7",R.drawable.plant_7,"生长状态良好"));
+//        plants.add(new Plant("植物8",R.drawable.plant_8,"生长状态良好"));
+//        plants.add(new Plant("植物9",R.drawable.plant_9,"生长状态良好"));
+//        plants.add(new Plant("植物10",R.drawable.plant_10,"生长状态良好"));
+//        plants.add(new Plant("植物11",R.drawable.plant_11,"生长状态良好"));
+//        plants.add(new Plant("植物12",R.drawable.plant_12,"生长状态良好"));
+//        plants.add(new Plant("植物13",R.drawable.plant_13,"生长状态良好"));
+//        plants.add(new Plant("植物14",R.drawable.plant_14,"生长状态良好"));
+        plants.add(new Plant("鸿运当头",R.drawable.plant21,"生长状态良好"));
+        plants.add(new Plant("龟背竹",R.drawable.plant22,"生长状态良好"));
+        plants.add(new Plant("银皇后",R.drawable.plant19,"生长状态良好"));
+        plants.add(new Plant("芦荟",R.drawable.plant15,"生长状态良好"));
+        plants.add(new Plant("文竹",R.drawable.plant9,"生长状态良好"));
+        plants.add(new Plant("君子兰",R.drawable.plant4,"生长状态良好"));
+        plants.add(new Plant("发财树",R.drawable.plant2,"生长状态良好"));
+
+
+
+        plants.add(new Plant("变叶木",R.drawable.plant3,"生长状态良好"));
+        plants.add(new Plant("太阳神",R.drawable.plant5,"生长状态良好"));
+        plants.add(new Plant("富贵竹",R.drawable.plant6,"生长状态良好"));
+        plants.add(new Plant("小天使蔓绿绒",R.drawable.plant7,"生长状态良好"));
+        plants.add(new Plant("常春藤",R.drawable.plant8,"生长状态良好"));
+        plants.add(new Plant("滴水观音",R.drawable.plant10,"生长状态良好"));
+        plants.add(new Plant("玛丽安",R.drawable.plant11,"生长状态良好"));
+        plants.add(new Plant("琴叶榕",R.drawable.plant12,"生长状态良好"));
+        plants.add(new Plant("红掌",R.drawable.plant13,"生长状态良好"));
+        plants.add(new Plant("绿萝",R.drawable.plant14,"生长状态良好"));
+        plants.add(new Plant("虎皮兰",R.drawable.plant16,"生长状态良好"));
+        plants.add(new Plant("袖珍椰子",R.drawable.plant17,"生长状态良好"));
+        plants.add(new Plant("金钱树",R.drawable.plant18,"生长状态良好"));
+        plants.add(new Plant("马蹄莲",R.drawable.plant20,"生长状态良好"));
+        plants.add(new Plant("仙人掌",R.drawable.plant1,"生长状态良好"));
+
+
 
 
     }

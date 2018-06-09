@@ -372,6 +372,12 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
         if (getPassword().isEmpty()){
             showToast("密码不能为空！");
         }
+        showLoading();
+
+
+//        for (int i=0;i<10000000;i++){
+//            System.out.println(i);
+//        };
         if (getAccount().equals("admin")&&getPassword().equals("123")){
             Intent intent=new Intent(LoginActivity.this,MainActivity.class);
             startActivity(intent);

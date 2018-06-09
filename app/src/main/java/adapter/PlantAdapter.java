@@ -13,6 +13,8 @@ import com.example.androidproject_plant.R;
 import java.util.List;
 
 import entity.Plant;
+import util.image.BitmapMemoryCache;
+import util.image.ImageResizer;
 
 public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHolder>{
 
@@ -21,6 +23,11 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
     private LayoutInflater inflater;
 
     private OnItemClickListener onItemClickListener;
+
+
+    //进行图片的压缩
+    ImageResizer imageResizer=new ImageResizer();
+    BitmapMemoryCache bitmapMemoryCache=new BitmapMemoryCache();
 
 
 
@@ -40,13 +47,25 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
     @Override
     public void onBindViewHolder(PlantViewHolder holder, final int position) {
         Plant plant = null;
-        for (int i=0;i<plants.size();i++){
-            plant=plants.get(position);
+        plant=plants.get(position);
+//        for (int i=0;i<plants.size();i++){
+//            plant=plants.get(position);
+//        }
+
+
+
+        //如果本地有图片则直接从本地获取。否则的话就缓存图片
+        if (bitmapMemoryCache.getBitmapFromMemoey(plant.getImgId()+"")!=null){
+            holder.imageView.setImageBitmap(bitmapMemoryCache.getBitmapFromMemoey(plant.getImgId()+""));
+        }else{
+            bitmapMemoryCache.addBitmapToMemory(plant.getImgId()+"",
+                    imageResizer.decodeSampledBitmapFromResource(context.getResources(),plant.getImgId()));
+            holder.imageView.setImageBitmap(imageResizer.decodeSampledBitmapFromResource(context.getResources(),plant.getImgId()));
+
         }
 
-
         //设置植物的图片和名字
-        holder.imageView.setImageResource(plant.getImgId());
+//        holder.imageView.setImageResource(plant.getImgId());
         holder.plantName.setText(plant.getName());
         holder.plantStatus.setText(plant.getDescription());
 

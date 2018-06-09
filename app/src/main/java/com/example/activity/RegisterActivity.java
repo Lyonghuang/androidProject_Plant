@@ -1,6 +1,7 @@
 package com.example.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -9,6 +10,13 @@ import android.widget.EditText;
 
 import com.example.androidproject_plant.R;
 
+import net.HttpMethod;
+import net.NetConnection;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import constatnt.constant;
 import util.ToastUtil;
 
 public class RegisterActivity extends Activity implements View.OnClickListener{
@@ -19,10 +27,14 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
 
     private String first_in_put_password,second_inout_password;
 
+    private JSONObject json;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        json=new JSONObject();
 
         findView();
     }
@@ -58,8 +70,42 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
-                ToastUtil.show(this,"进行注册");
+                if (userName.getText().toString().isEmpty()){
+                    ToastUtil.show(RegisterActivity.this,"请输入用户名");
+                }
+                if (input_password.getText().toString().isEmpty()){
+                    ToastUtil.show(RegisterActivity.this,"请输入密码");
+                }
+                if (check_password.getText().toString().isEmpty()){
+                    ToastUtil.show(RegisterActivity.this,"请再次输入密码");
+                }
+
+
+                try {
+                    json.put(constant.USER_ACCOUNT,userName.getText().toString());
+                    json.put(constant.PASSWORD,input_password.getText().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                sendData();
                 break;
         }
+    }
+
+
+
+    private void sendData(){
+        new NetConnection(constant.URL, HttpMethod.POST, new NetConnection.SuccessCallback() {
+            @Override
+            public void onSuccess(String result) {
+                Intent intent=new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        }, new NetConnection.FailCallback() {
+            @Override
+            public void onFail(String result) {
+                ToastUtil.show(RegisterActivity.this,"注册失败，请稍后重试");
+            }
+        },json);
     }
 }

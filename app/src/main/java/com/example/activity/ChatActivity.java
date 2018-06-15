@@ -94,7 +94,7 @@ public class ChatActivity extends Activity {
             public void onClick(View v) {
                 ArrayList<ItemModel> data = new ArrayList<>();
                 ChatModel model = new ChatModel();
-                model.setIcon("http://img.my.csdn.net/uploads/201508/05/1438760758_6667.jpg");
+                model.setIcon("https://s26.postimg.cc/orubndyqh/woman.png");
                 model.setContent(content);
                 data.add(new ItemModel(ItemModel.CHAT_B, model));
                 adapter.addAll(data);

@@ -24,11 +24,14 @@ public class CommonEditTextActivity extends Activity implements View.OnClickList
     Button finish_button;//完成按钮
     EditText edit_text_content;//要编辑的内容
 
+    private String TAG;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_edit_text);
 
+        TAG=getIntent().getStringExtra("activity");
         findView();
 
     }
@@ -40,10 +43,17 @@ public class CommonEditTextActivity extends Activity implements View.OnClickList
 
         edit_text=(TextView)findViewById(R.id.edit_text);
 
+
         finish_button=(Button)findViewById(R.id.finish_button);
         finish_button.setOnClickListener(this);
 
         edit_text_content=(EditText)findViewById(R.id.edit_text_content);
+
+        if (TAG!=null&&TAG.equals("plantActivity")){
+            edit_text.setText("修改植物名称");
+//            edit_text_content.setText("请输入植物的新名称");
+            edit_text_content.setHint("请输入植物的新名称");
+        }
     }
 
     @Override

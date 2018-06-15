@@ -48,11 +48,9 @@ public class AddPlantActivity extends Activity {
             public void onClick(View v) {
                 if (input_name.getText().toString().isEmpty()) {
                     ToastUtil.show(AddPlantActivity.this, "请输入植物名称！");
-                }
-                if (input_date.getText().toString().isEmpty()) {
+                } else if (input_date.getText().toString().isEmpty()) {
                     ToastUtil.show(AddPlantActivity.this, "请输入植物的种植日期！");
-                }
-                if (plant_type.getText().toString().isEmpty()) {
+                } else if (plant_type.getText().toString().isEmpty()) {
                     ToastUtil.show(AddPlantActivity.this, "请输入植物的种类！");
                 }
 

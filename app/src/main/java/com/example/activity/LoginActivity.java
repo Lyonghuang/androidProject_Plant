@@ -4,18 +4,24 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.androidproject_plant.R;
 
+import net.HttpMethod;
+import net.NetConnection;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import constatnt.constant;
 import util.SharedPreferencesUtils;
+import util.ToastUtil;
 import widget.LoadingDialog;
 
 
@@ -30,9 +36,11 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
     private Button mLoginBtn;
     private CheckBox checkBox_password;
     private CheckBox checkBox_login;
-    private ImageView iv_see_password;
+//    private ImageView iv_see_password;
 
     private Button to_register;
+
+    private JSONObject json;
 
     private LoadingDialog mLoadingDialog;//显示正在加载的对话框
 
@@ -40,6 +48,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        json=new JSONObject();
         initViews();
         setupEvents();
         initData();
@@ -154,7 +163,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
         et_password = (EditText) findViewById(R.id.et_password);
         checkBox_password = (CheckBox) findViewById(R.id.checkBox_password);
         checkBox_login = (CheckBox) findViewById(R.id.checkBox_login);
-        iv_see_password = (ImageView) findViewById(R.id.iv_see_password);
+//        iv_see_password = (ImageView) findViewById(R.id.iv_see_password);
 
         to_register=(Button)findViewById(R.id.to_register);
     }
@@ -163,7 +172,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
         mLoginBtn.setOnClickListener(this);
         checkBox_password.setOnCheckedChangeListener(this);
         checkBox_login.setOnCheckedChangeListener(this);
-        iv_see_password.setOnClickListener(this);
+//        iv_see_password.setOnClickListener(this);
 
         to_register.setOnClickListener(this);
     }
@@ -175,9 +184,9 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
                 loadUserName();
                 login();//登录
                 break;
-            case R.id.iv_see_password:
-                setPasswordVisibility();//改变图片并设置输入框的文本可见或不可见
-                break;
+//            case R.id.iv_see_password:
+//                setPasswordVisibility();//改变图片并设置输入框的文本可见或不可见
+//                break;
             case R.id.to_register:
                 Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
@@ -205,17 +214,17 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
     /**
      * 设置密码可见和不可见的相互转换
      */
-    private void setPasswordVisibility(){
-        if (iv_see_password.isSelected()){
-            iv_see_password.setSelected(false);
-            //密码不可见
-            et_password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        }else{
-            iv_see_password.setSelected(true);
-            //密码可见
-            et_password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-        }
-    }
+//    private void setPasswordVisibility(){
+//        if (iv_see_password.isSelected()){
+//            iv_see_password.setSelected(false);
+//            //密码不可见
+//            et_password.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+//        }else{
+//            iv_see_password.setSelected(true);
+//            //密码可见
+//            et_password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+//        }
+//    }
 
     /**
      * 获取账号
@@ -373,15 +382,43 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             showToast("密码不能为空！");
         }
         showLoading();
+        try {
+            json.put(constant.REQUEST_TYPE,constant.LOGIN);
+            json.put(constant.USER_ACCOUNT,getAccount());
+            json.put(constant.PASSWORD,getPassword());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
-//        for (int i=0;i<10000000;i++){
-//            System.out.println(i);
-//        };
+
+        //连接服务器时使用这个方法
+//        sendData();
+
+
+
+
         if (getAccount().equals("admin")&&getPassword().equals("123")){
             Intent intent=new Intent(LoginActivity.this,MainActivity.class);
             startActivity(intent);
         }
+    }
+
+
+    private void sendData(){
+        new NetConnection(constant.URL, HttpMethod.POST, new NetConnection.SuccessCallback() {
+            @Override
+            public void onSuccess(String result) {
+                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        }, new NetConnection.FailCallback() {
+            @Override
+            public void onFail(String result) {
+                ToastUtil.show(LoginActivity.this,"登录失败，请稍后重试");
+            }
+        },json);
+
     }
 
 //    /**

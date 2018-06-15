@@ -12,7 +12,7 @@ public class constant {
 
 
     //请求的链接
-    public static final String URL="";
+    public static final String URL="http://172.30.254.33:8080/Plant/Index";
 
     public static final String REQUEST_TYPE="requestType";
 

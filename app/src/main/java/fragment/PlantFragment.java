@@ -104,13 +104,13 @@ public class PlantFragment extends Fragment{
         plantAdapter.setOnItemClickListener(new PlantAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
-                ToastUtil.show(getActivity(),"您点击了第"+position+"行");
+//                ToastUtil.show(getActivity(),"您点击了第"+position+"行");
 
                 Intent intent=new Intent(getActivity(), PlantActivity.class);
 
 
                 System.out.println("植物id为："+plants.get(position).getImgId());
-//                intent.putExtra("imgId",plants.get(position).getImgId()+"");
+                intent.putExtra("imgId",plants.get(position).getImgId());
                 intent.putExtra("plantName",plants.get(position).getName());
                 intent.putExtra("position",position+"");
                 System.out.println("王尼玛： "+position);
@@ -138,10 +138,10 @@ public class PlantFragment extends Fragment{
                 switch (newState){
                     case 0:
                         if (isSlideToBottom(recyclerView)){
-                            ToastUtil.show(getActivity(),"隐藏导航栏");
+//                            ToastUtil.show(getActivity(),"隐藏导航栏");
 //                            ((MainActivity)getActivity()).hide();
                         }else{
-                            ToastUtil.show(getActivity(),"显示导航栏");
+//                            ToastUtil.show(getActivity(),"显示导航栏");
                         }
                         break;
 

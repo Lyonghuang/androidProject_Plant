@@ -22,7 +22,7 @@ import util.ToastUtil;
 public class RegisterActivity extends Activity implements View.OnClickListener{
 
 
-    private EditText userName,input_password,check_password;
+    private EditText userName,input_password,check_password,nickName;
     private Button register;
 
     private String first_in_put_password,second_inout_password;
@@ -44,6 +44,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         userName=(EditText)findViewById(R.id.userName);
         input_password=(EditText)findViewById(R.id.input_password);
         check_password=(EditText)findViewById(R.id.check_password);
+        nickName=(EditText)findViewById(R.id.nickName);
 
 
         register=(Button)findViewById(R.id.register);
@@ -71,17 +72,23 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.register:
                 if (userName.getText().toString().isEmpty()){
-                    ToastUtil.show(RegisterActivity.this,"请输入用户名");
+                    ToastUtil.show(RegisterActivity.this,"请输入手机号");
+                }else if (nickName.getText().toString().isEmpty()){
+                    ToastUtil.show(RegisterActivity.this,"请输入昵称");
                 }
-                if (input_password.getText().toString().isEmpty()){
+                else if (input_password.getText().toString().isEmpty()){
                     ToastUtil.show(RegisterActivity.this,"请输入密码");
                 }
                 if (check_password.getText().toString().isEmpty()){
                     ToastUtil.show(RegisterActivity.this,"请再次输入密码");
                 }
 
+                System.out.println("\n"+userName.getText().toString()+"    "+input_password.getText().toString());
+
 
                 try {
+                    json.put(constant.REQUEST_TYPE,constant.REGISTER);
+                    json.put(constant.NICKNAME,nickName.getText().toString());
                     json.put(constant.USER_ACCOUNT,userName.getText().toString());
                     json.put(constant.PASSWORD,input_password.getText().toString());
                 } catch (JSONException e) {

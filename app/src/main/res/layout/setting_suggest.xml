@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/setting_remind">
+    android:id="@+id/setting_remind"
+    android:background="#fff">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#1E90FF">
 
 
         <ImageButton
             android:id="@+id/back_to_setting"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="#EEEEEE"
+            android:background="#00000000"
             android:layout_alignParentLeft="true"
             android:src="@drawable/back"/>
 

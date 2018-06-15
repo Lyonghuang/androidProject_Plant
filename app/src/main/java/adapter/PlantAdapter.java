@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.androidproject_plant.R;
 
 import java.util.List;
@@ -53,16 +54,17 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
 //        }
 
 
+        Glide.with(context).load(plant.getImgId()).into(holder.imageView);
 
         //如果本地有图片则直接从本地获取。否则的话就缓存图片
-        if (bitmapMemoryCache.getBitmapFromMemoey(plant.getImgId()+"")!=null){
-            holder.imageView.setImageBitmap(bitmapMemoryCache.getBitmapFromMemoey(plant.getImgId()+""));
-        }else{
-            bitmapMemoryCache.addBitmapToMemory(plant.getImgId()+"",
-                    imageResizer.decodeSampledBitmapFromResource(context.getResources(),plant.getImgId()));
-            holder.imageView.setImageBitmap(imageResizer.decodeSampledBitmapFromResource(context.getResources(),plant.getImgId()));
-
-        }
+//        if (bitmapMemoryCache.getBitmapFromMemoey(plant.getImgId()+"")!=null){
+//            holder.imageView.setImageBitmap(bitmapMemoryCache.getBitmapFromMemoey(plant.getImgId()+""));
+//        }else{
+//            bitmapMemoryCache.addBitmapToMemory(plant.getImgId()+"",
+//                    imageResizer.decodeSampledBitmapFromResource(context.getResources(),plant.getImgId()));
+//            holder.imageView.setImageBitmap(imageResizer.decodeSampledBitmapFromResource(context.getResources(),plant.getImgId()));
+//
+//        }
 
         //设置植物的图片和名字
 //        holder.imageView.setImageResource(plant.getImgId());

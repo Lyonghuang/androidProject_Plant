@@ -26,6 +26,9 @@ public class ModifyPasswordActivity extends Activity {
     private Button submit_password;
 
 
+    private String userAccount;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,6 +75,7 @@ public class ModifyPasswordActivity extends Activity {
             jsonObject.put(constant.REQUEST_TYPE,constant.MODIFY_PASSWORD);
             jsonObject.put(constant.OLD_PASSWORD,old_password.getText().toString());
             jsonObject.put(constant.NEW_PASSWORD,new_password.getText().toString());
+            jsonObject.put(constant.USER_ACCOUNT,userAccount);
         } catch (JSONException e) {
             e.printStackTrace();
         }
